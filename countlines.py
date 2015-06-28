@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import sys
+
+
+def usage():
+    print "Usage: python %s <filename>" % (sys.argv[0])
+
+
+def main():
+    if len(sys.argv) != 2:
+        usage()
+        sys.exit(1)
+
+    try:
+        fp = open(sys.argv[1], "r")
+        fp2 = open(sys.argv[1], "r")
+        fp3 = open(sys.argv[1], "r")
+    except IOError as e:
+        print >> sys.stderr, "Argument is not a valid filename"
+        usage()
+        sys.exit(1)
+    nomin = 10
+    nomax = 0
+    for i, line in enumerate(list(fp)):
+        item = line.split()
+        if int(item[3]) > nomax:
+            nomax = int(item[3].strip())
+            numax = item[0]
+            prmax = item[1]
+            grmax = item[2]
+        if int(item[3]) < nomin:
+            nomin = int(item[3])
+            numin = item[0]
+            prmin = item[1]
+            grmin = item[2]
+    print "Elevii cu cea mai mare nota: "
+    for i, line in enumerate(list(fp2)):
+        item = line.split()
+        if int(item[3]) == nomax:
+            print line
+    print "Elevii cu cea mai mica nota: "
+    for i, line in enumerate(list(fp3)):
+        item = line.split()
+        if int(item[3]) == nomin:
+            print line
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,10 @@
+#!/bin/usr/env python
+
+import sys
+
+
+def main():
+    pass
+
+if __name__ == "__main__"
+    sys.ext(main())
